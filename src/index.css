@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+.cat-run {
+  position: absolute;
+  bottom: 0;
+  right: 100%;
+  height: auto;
+  animation: catMove 15s linear infinite;
+}
+
+@keyframes catMove {
+  from {
+    right: 100%;
+  }
+  to {
+    right: -100px;
+  }
+}
