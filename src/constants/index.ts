@@ -52,7 +52,11 @@ export const blocks = [
   },
   // Square
   {
-    name: 'square-little',
+    name: 'square-sm',
+    cells: [{ x: 0, y: 0 }],
+  },
+  {
+    name: 'square-md',
     cells: [
       { x: 0, y: 0 },
       { x: 0, y: 1 },
@@ -61,7 +65,7 @@ export const blocks = [
     ],
   },
   {
-    name: 'square-big',
+    name: 'square-lg',
     cells: [
       { x: 0, y: 0 },
       { x: 0, y: 1 },
@@ -255,6 +259,4 @@ export const blocks = [
       { x: 1, y: 0 },
     ],
   },
-
-  
 ];
