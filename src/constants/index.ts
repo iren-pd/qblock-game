@@ -1,6 +1,8 @@
+import { GameBlockType } from "../types";
+
 export const GAME_BOARD_SIZE = 10;
 
-const blocksLines = [
+const blocksLines: GameBlockType[] = [
   {
     name: 'horizontal-line2',
     color: 'bg-yellow-400',
@@ -57,7 +59,7 @@ const blocksLines = [
   },
 ];
 
-const blocksSquares = [
+const blocksSquares: GameBlockType[] = [
   {
     name: 'square-sm',
     color: 'bg-red-400',
@@ -90,7 +92,7 @@ const blocksSquares = [
   },
 ];
 
-const blocksLShapesVertical = [
+const blocksLShapesVertical: GameBlockType[] = [
   {
     name: 'l-shape-vertical-right-down',
     color: 'bg-green-400',
@@ -133,7 +135,7 @@ const blocksLShapesVertical = [
   },
 ];
 
-const blocksLShapesHorizontal = [
+const blocksLShapesHorizontal: GameBlockType[] = [
   {
     name: 'l-shape-horizontal-down-right',
     color: 'bg-blue-400',
@@ -176,7 +178,7 @@ const blocksLShapesHorizontal = [
   },
 ];
 
-const blocksTShapes = [
+const blocksTShapes: GameBlockType[] = [
   {
     name: 't-shape-down',
     color: 'bg-purple-400',
@@ -219,7 +221,7 @@ const blocksTShapes = [
   },
 ];
 
-const blocksZShapes = [
+const blocksZShapes: GameBlockType[] = [
   {
     name: 'z-shape-vertical-right',
     color: 'bg-pink-400',
@@ -262,7 +264,7 @@ const blocksZShapes = [
   },
 ];
 
-const blocksVShapes = [
+const blocksVShapes: GameBlockType[] = [
   {
     name: 'v-shape-down-left',
     color: 'bg-orange-400',
@@ -301,7 +303,7 @@ const blocksVShapes = [
   },
 ];
 
-export const blocks = [
+export const blocks: GameBlockType[] = [
   ...blocksLines,
   ...blocksSquares,
   ...blocksLShapesVertical,
