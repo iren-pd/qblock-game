@@ -1,4 +1,7 @@
-export type GameCellType = number | null;
+export type GameCellType = {
+  number: number | null;
+  color: string;
+};
 export type GameRowType = GameCellType[];
 export type GameBoardType = GameRowType[];
 

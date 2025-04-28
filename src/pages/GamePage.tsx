@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
-import { GameBoardType } from '../types';
+import { GameBoardType, GameBlockType } from '../types';
 import { GameBoard } from '../components/GameBoard';
+import { GameBlock } from '../components/GameBlock';
 import { GAME_BOARD_SIZE, blocks } from '../constants';
 import Footer from '../components/Footer';
 
@@ -9,17 +10,16 @@ const getDemoBoard = (): GameBoardType => {
     Array.from({ length: GAME_BOARD_SIZE }, () => null)
   );
 
-  // Каждой фигуре присваиваем уникальный number
   const demoBlocks = [
-    { block: blocks.find((b) => b.name === 'horizontal-line3'), key: 1 }, // линия
-    { block: blocks.find((b) => b.name === 'square-little'), key: 2 }, // квадрат
+    { block: blocks.find((b) => b.name === 'horizontal-line3'), key: 1 },
+    { block: blocks.find((b) => b.name === 'square-little'), key: 2 },
     {
       block: blocks.find((b) =>
         b.name?.startsWith('l-shape-vertical-right-down')
       ),
       key: 3,
     }, // L
-    { block: blocks.find((b) => b.name?.startsWith('t-shape-down')), key: 4 }, // T
+    { block: blocks.find((b) => b.name?.startsWith('t-shape-down')), key: 4 },
     {
       block: blocks.find((b) => b.name?.startsWith('z-shape-vertical-right')),
       key: 5,
@@ -30,7 +30,6 @@ const getDemoBoard = (): GameBoardType => {
     }, // V
   ];
 
-  // Координаты для размещения фигур
   const positions = [
     { x: 0, y: 0 },
     { x: 4, y: 0 },
@@ -56,17 +55,32 @@ const getDemoBoard = (): GameBoardType => {
   return board;
 };
 
+const getRandomBlocks = (count: number): GameBlockType[] => {
+  const shuffled = [...blocks].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
+
 const GamePage: FC = () => {
   const [gameBoard, setGameBoard] = useState<GameBoardType>([]);
+  const [randomBlocks, setRandomBlocks] = useState<GameBlockType[]>([]);
+
+  console.log('randomBlocks', randomBlocks);
 
   useEffect(() => {
     setGameBoard(getDemoBoard());
+    setRandomBlocks(getRandomBlocks(3));
   }, []);
 
   return (
     <>
-      <main className="flex flex-col items-center justify-center h-screen">
+      <main className="flex flex-col items-center justify-center gap-14 h-screen">
         <GameBoard board={gameBoard} />
+
+        <div className="flex gap-8">
+          {randomBlocks.map((block, index) => (
+            <GameBlock key={index} block={block} />
+          ))}
+        </div>
       </main>
 
       <Footer />
