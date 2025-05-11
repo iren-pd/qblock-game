@@ -4,6 +4,7 @@ import { GameBoard } from '../components/GameBoard';
 import { GameBlock } from '../components/GameBlock';
 import { GAME_BOARD_SIZE, blocks } from '../constants';
 import Footer from '../components/Footer';
+import { GameHeader } from '../components/GameHeader';
 
 const getEmptyBoard = (): GameBoardType => {
   return Array.from({ length: GAME_BOARD_SIZE }, () =>
@@ -29,7 +30,9 @@ const GamePage: FC = () => {
 
   return (
     <>
-      <main className="flex flex-col items-center justify-center gap-14 h-screen">
+      <GameHeader />
+
+      <main className="flex flex-col items-center justify-center gap-14 h-screen bg-purple-100">
         <GameBoard board={gameBoard} />
 
         <div className="flex gap-8">
